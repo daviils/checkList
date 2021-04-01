@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CheckList } from 'src/app/model/check-list';
+
 
 @Component({
   selector: 'app-check-list',
@@ -7,35 +8,28 @@ import { CheckList } from 'src/app/model/check-list';
   styleUrls: ['./check-list.component.scss']
 })
 export class CheckListComponent implements OnInit {
-  modelChecklist: CheckList[] = [];
   getArrayType: any = [];
+  @Input() model: CheckList[];
+
+
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.actionList();
+  ngOnInit() {
+    console.log(this.model);
   }
 
-  actionList() {
-    this.modelChecklist = [
-      { name: 'test1', isSelect: false },
-      { name: 'test2', isSelect: false },
-      { name: 'test3', isSelect: false },
-      { name: 'test4', isSelect: false },
-    ];
-    console.log(this.modelChecklist)
-  }
 
   onChangeCategory(event, cat) {
     this.getArrayType = cat.filter((el) => {
       return el.isSelect !== false;
     });
     this.getArrayType = this.getArrayType.map((el) => {
-      return {id: el.id, name: el.name};
+      return { id: el.id, name: el.name };
     });
   }
 
-  test(){
+  test() {
     console.log(this.getArrayType)
   }
 
