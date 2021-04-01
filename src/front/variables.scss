@@ -1,0 +1,120 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+
+/* COLORS */
+$primary-color: #005CC1;
+$primary-color-light: #265ba3;
+$primary-color-dark: #265ba3;
+
+$secondary-color: #a6a7ac;
+$tertiary-color: #FFE400;
+$quaternary-color: #10a715;
+$quinary-color: #213769;
+
+$gray-color: #757679;
+
+$white: #ffffff;
+$black: #000000;
+
+$background-color-table: #f9f9fa;
+
+$background-color-table-td: #f1f1f3;
+$color-table: #757679;
+
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+    (
+      "primary": $primary-color,
+      "primary-light": $primary-color-light,
+      "secondary": $secondary-color,
+      "tertiary": $tertiary-color,
+      "quaternary": $quaternary-color,
+      "quinternary": $quinary-color,
+    ),
+    $theme-colors
+);
+
+$body-bg: $primary-color;
+
+
+// Components
+
+$line-height-lg: 1.5;
+$line-height-sm: 1.5;
+
+$border-width: 1px;
+$border-color: $gray-300;
+
+$border-radius: .25rem;
+$border-radius-lg: .3rem;
+$border-radius-sm: .2rem;
+
+$box-shadow-sm: 0 .125rem .25rem rgba($black, .075);
+$box-shadow: 0 .5rem 1rem rgba($black, .15);
+$box-shadow-lg: 0 1rem 3rem rgba($black, .175);
+
+// Typography
+$base-font-color: $gray-color;
+
+$base-font-family: 'Arial';
+$base-font-family-secondary: 'Arial Black';
+$base-font-size: 16px;
+
+
+@import "../tools/mixins";
+/* FONT SIZE */
+$font-size-max-small: rem(5px);
+
+$font-size-extra-small: rem(7px);
+$font-size-small: rem(10px);
+$font-size-big-small: rem(12px);
+
+$font-size-extra-medium: rem(14px);
+$font-size-medium: rem(16px);
+$font-size-big-medium: rem(18px);
+
+$font-size-extra-large: rem(20px);
+$font-size-large: rem(24px);
+$font-size-big-large: rem(30px);
+
+$font-size-max-large: rem(48px);
+
+//small
+.size-xxxs {
+  font-size: $font-size-max-small;
+}
+.size-xxs {
+  font-size: $font-size-extra-small;
+}
+.size-xs {
+  font-size: $font-size-small;
+}
+.size-sm {
+  font-size: $font-size-big-small;
+}
+//medium
+.size-md {
+  font-size: $font-size-extra-medium;
+}
+.size-xm{
+  font-size: $font-size-medium;
+}
+.size-xxm{
+  font-size: $font-size-big-medium;
+}
+//large
+.size-lg {
+  font-size: $font-size-extra-large;
+}
+.size-xl {
+  font-size: $font-size-large;
+}
+.size-xxl{
+  font-size: $font-size-big-large;
+}
+.size-xxxl{
+  font-size: $font-size-max-large;
+}

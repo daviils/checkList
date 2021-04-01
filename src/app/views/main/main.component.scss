@@ -1,0 +1,29 @@
+@import "../../../front/variables";
+
+
+.header{
+  padding: ($grid-gutter-width / 3) $grid-gutter-width;
+}
+
+h1{
+  color: $primary-color;
+  font-size: $font-size-max-large;
+}
+
+.teste-columns{
+  display: flex;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+
+  .row{
+    flex: 1 1 auto;
+    margin: 0;
+  }
+
+  .col-1{
+    background-color: $primary-color;
+    color: $white;
+    border: 1px solid #000;
+  }
+}

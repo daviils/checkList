@@ -1,0 +1,8 @@
+{
+  "baseComponent": {
+    "confirmMessage": {
+      "yes": "Sim",
+      "no": "Não"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "./front/variables";
+
+body{
+  font-size: $font-size-medium;
+
+  @include media-breakpoint-up('xxxl') {
+    font-size: $font-size-extra-large !important;
+  }
+
+  @include media-breakpoint-down('lg') {
+    font-size: $font-size-extra-medium !important;
+  }
+
+  @include media-breakpoint-down('sm') {
+    font-size: $font-size-big-small !important;
+  }
+}
+
