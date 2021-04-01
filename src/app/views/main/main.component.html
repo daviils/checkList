@@ -9,17 +9,20 @@
   <div class="card bg-warning">
     <span class="text-center font-weight-bold text-primary size-xxl">Minhas Tarefas</span>
     <ul class="mb-0">
-      <li class="card m-3 px-1 py-1" *ngFor="let i of modelChecklist">
-        <div class="d-flex justify-content-between mb-3">
-          <span class="text-success">27/03/2021</span>
-          <svg-icon src="assets/images/trash.svg" [svgStyle]="{'width.px':20,'fill':'red'}">
-          </svg-icon>
+      <li class="card m-3 px-1 py-1" *ngFor="let i of modelChecklistAll">
+        <div *ngIf="!i.isSelect">
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-success">27/03/2021</span>
+            <svg-icon src="assets/images/trash.svg" [svgStyle]="{'width.px':20,'fill':'red'}">
+            </svg-icon>
+          </div>
+          <div class=" form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
+                   (change)="onChangeCategory($event, modelChecklistAll)" id="{{i.name}}">
+            <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
+          </div>
         </div>
-        <div class=" form-check form-check-inline">
-          <input class="form-check-input" (ngModel)="i.isSelect" type="checkbox" name="{{i.name}}"
-            (change)="onChangeCategory($event, modelChecklist)" id="{{i.name}}">
-          <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
-        </div>
+
       </li>
     </ul>
     <div class="mx-3 mb-3">
@@ -29,14 +32,14 @@
     </div>
 
   </div>
-  <a href="#" (click)="actionNew()" class="btn btn-quinternary btn-lg btn-block mt-3">
+  <a href="#" (click)="actionModal()" class="btn btn-quinternary btn-lg btn-block mt-3">
     Nova Tarefa
   </a>
 </section>
 
 <!-- Modal Note Detail -->
 <div class="modal-custom modal fade mx-auto" id="modalNoteResume" data-keyboard="false" data-backdrop="static"
-  role="dialog" aria-labelledby="modalNoteResumeLabel" aria-hidden="true">
+     role="dialog" aria-labelledby="modalNoteResumeLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl" style="max-width: 500px" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -46,8 +49,8 @@
         </a>
       </div>
       <div class="modal-body modal-body--small">
-        <label>Nome/Descrição</label>
-        <textarea class="w-100"></textarea>
+        <label for="textarea">Nome/Descrição</label>
+        <textarea [(ngModel)]="this.pushCheck.name" id="textarea" class="w-100"></textarea>
         <a href="#" (click)="actionNew()" class="btn btn-light btn-lg btn-block mt-3">
           Registrar
         </a>

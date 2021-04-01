@@ -13,6 +13,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import { CheckListComponent } from './views/component/check-list/check-list.component';
+import {FormsModule} from '@angular/forms';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -23,23 +24,24 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainComponent,
     CheckListComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    AngularSvgIconModule.forRoot(),
-    NgxSpinnerModule,
-    NgxMaskModule.forRoot(),
-    CurrencyMaskModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    SlickCarouselModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        AngularSvgIconModule.forRoot(),
+        NgxSpinnerModule,
+        NgxMaskModule.forRoot(),
+        CurrencyMaskModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        SlickCarouselModule,
+        FormsModule
+    ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
