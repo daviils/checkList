@@ -15,6 +15,7 @@ declare var $: any;
 export class MainComponent extends BaseComponent implements OnInit {
   modelChecklistAll: CheckList[] = [];
   pushCheck: CheckList = new CheckList();
+  activeAll = false;
 
 
   constructor(public router: Router,
@@ -49,7 +50,7 @@ export class MainComponent extends BaseComponent implements OnInit {
   }
 
   test() {
-
+    this.activeAll = !this.activeAll;
   }
 
 

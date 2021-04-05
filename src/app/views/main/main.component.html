@@ -10,18 +10,39 @@
     <span class="text-center font-weight-bold text-primary size-xxl">Minhas Tarefas</span>
     <ul class="mb-0">
       <li class="card m-3 px-1 py-1" *ngFor="let i of modelChecklistAll">
-        <div *ngIf="!i.isSelect">
-          <div class="d-flex justify-content-between mb-3">
-            <span class="text-success">27/03/2021</span>
-            <svg-icon src="assets/images/trash.svg" [svgStyle]="{'width.px':20,'fill':'red'}">
-            </svg-icon>
-          </div>
-          <div class=" form-check form-check-inline">
-            <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
-                   (change)="onChangeCategory($event, modelChecklistAll)" id="{{i.name}}">
-            <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
+        <div *ngIf="activeAll">
+          <div>
+            <div class="d-flex justify-content-between mb-3">
+              <span class="text-success">27/03/2021</span>
+              <svg-icon src="assets/images/trash.svg" [svgStyle]="{'fill':'red','width.px':20}">
+              </svg-icon>
+            </div>
+            <div class=" form-check form-check-inline">
+              <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
+                     (change)="onChangeCategory($event, modelChecklistAll)" id="{{i.name}}">
+              <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
+            </div>
           </div>
         </div>
+
+        <div *ngIf="activeAll; else elseBlock">
+
+        </div>
+        <ng-template #elseBlock>
+          <div *ngIf="!i.isSelect">
+            <div class="d-flex justify-content-between mb-3">
+              <span class="text-success">27/03/2021</span>
+              <svg-icon src="assets/images/trash.svg" [svgStyle]="{'fill':'red','width.px':20}">
+              </svg-icon>
+            </div>
+            <div class=" form-check form-check-inline">
+              <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
+                     (change)="onChangeCategory($event, modelChecklistAll)" id="{{i.name}}">
+              <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
+            </div>
+          </div>
+        </ng-template>
+
 
       </li>
     </ul>

@@ -1,7 +1,7 @@
 export class CheckList {
 
     name: String;
-    isSelect: boolean
+    isSelect: boolean;
 
     constructor() {
 
