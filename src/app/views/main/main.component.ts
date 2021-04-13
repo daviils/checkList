@@ -57,4 +57,9 @@ export class MainComponent extends BaseComponent implements OnInit {
   actionModal() {
     $('#modalNoteResume').modal('show');
   }
+
+  removeCheck(index) {
+    this.modelChecklistAll.splice(index, 1);
+    console.log(this.modelChecklistAll);
+  }
 }

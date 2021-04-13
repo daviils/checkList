@@ -8,13 +8,14 @@
   </div>
   <div class="card bg-warning">
     <span class="text-center font-weight-bold text-primary size-xxl">Minhas Tarefas</span>
-    <ul class="mb-0">
-      <li class="card m-3 px-1 py-1" *ngFor="let i of modelChecklistAll">
-        <div *ngIf="activeAll">
-          <div>
+    <div class="mb-0">
+      <div *ngFor="let i of modelChecklistAll; let index= index ">
+        <div class="card m-3 px-1 py-1">
+          <div *ngIf="activeAll">
             <div class="d-flex justify-content-between mb-3">
               <span class="text-success">27/03/2021</span>
-              <svg-icon src="assets/images/trash.svg" [svgStyle]="{'fill':'red','width.px':20}">
+              <svg-icon (click)="removeCheck(index)" src="assets/images/trash.svg"
+                        [svgStyle]="{'fill':'red','width.px':20}">
               </svg-icon>
             </div>
             <div class=" form-check form-check-inline">
@@ -23,29 +24,31 @@
               <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
             </div>
           </div>
-        </div>
 
-        <div *ngIf="activeAll; else elseBlock">
+          <div *ngIf="activeAll; else elseBlock">
 
-        </div>
-        <ng-template #elseBlock>
-          <div *ngIf="!i.isSelect">
-            <div class="d-flex justify-content-between mb-3">
-              <span class="text-success">27/03/2021</span>
-              <svg-icon src="assets/images/trash.svg" [svgStyle]="{'fill':'red','width.px':20}">
-              </svg-icon>
-            </div>
-            <div class=" form-check form-check-inline">
-              <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
-                     (change)="onChangeCategory($event, modelChecklistAll)" id="{{i.name}}">
-              <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
-            </div>
           </div>
-        </ng-template>
+          <ng-template #elseBlock>
+            <div *ngIf="!i.isSelect">
+              <div class="d-flex justify-content-between mb-3">
+                <span class="text-success">27/03/2021</span>
+                <svg-icon (click)="removeCheck(index)" src="assets/images/trash.svg"
+                          [svgStyle]="{'fill':'red','width.px':20}">
+                </svg-icon>
+              </div>
+              <div class=" form-check form-check-inline">
+                <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
+                       (change)="onChangeCategory($event, modelChecklistAll)" id="{{i.name}}">
+                <label class="form-check-label" for="{{i.name}}">{{i.name}}</label>
+              </div>
+            </div>
+          </ng-template>
 
 
-      </li>
-    </ul>
+        </div>
+      </div>
+
+    </div>
     <div class="mx-3 mb-3">
       <a href="#" (click)="test()" class="btn btn-block btn-primary">
         Exibir concluidos
