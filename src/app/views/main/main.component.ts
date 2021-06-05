@@ -16,6 +16,7 @@ export class MainComponent extends BaseComponent implements OnInit {
   modelChecklistAll: CheckList[] = [];
   pushCheck: CheckList = new CheckList();
   activeAll = false;
+  data = new Date();
 
 
   constructor(public router: Router,
@@ -26,16 +27,10 @@ export class MainComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     this.actionList();
+    console.log(this.data);
   }
 
-  actionList() {
-    this.modelChecklistAll = [
-      {name: 'test1', isSelect: false},
-      {name: 'test2', isSelect: false},
-      {name: 'test3', isSelect: false},
-      {name: 'test4', isSelect: false},
-    ];
-  }
+  actionList() {}
 
   onChangeCategory(event, cat) {
     console.log(this.modelChecklistAll);
@@ -43,7 +38,7 @@ export class MainComponent extends BaseComponent implements OnInit {
 
   actionNew() {
     console.log(this.pushCheck.name);
-    this.modelChecklistAll.push({name: this.pushCheck.name, isSelect: false});
+    this.modelChecklistAll.push({name: this.pushCheck.name, isSelect: false, date: this.data});
     $('#modalNoteResume').modal('hide');
     this.pushCheck = new CheckList();
 

@@ -12,7 +12,6 @@ import {CurrencyMaskModule} from 'ng2-currency-mask';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
-import { CheckListComponent } from './views/component/check-list/check-list.component';
 import {FormsModule} from '@angular/forms';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -22,7 +21,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     MainComponent,
-    CheckListComponent
   ],
     imports: [
         BrowserModule,
