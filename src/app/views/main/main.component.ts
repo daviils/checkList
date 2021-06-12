@@ -26,11 +26,8 @@ export class MainComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actionList();
-    console.log(this.data);
   }
 
-  actionList() {}
 
   onChangeCategory(event, cat) {
     console.log(this.modelChecklistAll);
@@ -44,7 +41,7 @@ export class MainComponent extends BaseComponent implements OnInit {
 
   }
 
-  test() {
+  clickActiveAll() {
     this.activeAll = !this.activeAll;
   }
 

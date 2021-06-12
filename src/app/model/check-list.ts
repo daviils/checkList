@@ -1,7 +1,6 @@
 export class CheckList {
 
-  // tslint:disable-next-line:ban-types
-    name: String;
+    name: string;
     isSelect: boolean;
     date: Date;
 

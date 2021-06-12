@@ -50,10 +50,10 @@
 
     </div>
     <div class="mx-3 mb-3">
-      <a href="#" (click)="test()" *ngIf="!this.activeAll" class="btn btn-block btn-primary">
+      <a href="#" (click)="clickActiveAll()" *ngIf="!this.activeAll" class="btn btn-block btn-primary">
         Exibir concluidos
       </a>
-      <a href="#" (click)="test()" *ngIf="this.activeAll" class="btn btn-block btn-primary">
+      <a href="#" (click)="clickActiveAll()" *ngIf="this.activeAll" class="btn btn-block btn-primary">
         Ocultar concluidos
       </a>
     </div>
