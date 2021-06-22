@@ -28,11 +28,6 @@ export class MainComponent extends BaseComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  onChangeCategory(event, cat) {
-    console.log(this.modelChecklistAll);
-  }
-
   actionNew() {
     console.log(this.pushCheck.name);
     this.modelChecklistAll.push({name: this.pushCheck.name, isSelect: false, date: this.data});

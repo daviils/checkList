@@ -19,14 +19,9 @@
               </svg-icon>
             </div>
             <div class=" form-check form-check-inline">
-              <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
-                     (change)="onChangeCategory($event, modelChecklistAll)">
+              <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}">
               <label class="form-check-label">{{i.name}}</label>
             </div>
-          </div>
-
-          <div *ngIf="activeAll; else elseBlock">
-
           </div>
           <ng-template #elseBlock>
             <div *ngIf="!i.isSelect">
@@ -37,14 +32,11 @@
                 </svg-icon>
               </div>
               <div class=" form-check form-check-inline">
-                <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}"
-                       (change)="onChangeCategory($event, modelChecklistAll)">
+                <input class="form-check-input" [(ngModel)]="i.isSelect" type="checkbox" name="{{i.name}}">
                 <label class="form-check-label">{{i.name}}</label>
               </div>
             </div>
           </ng-template>
-
-
         </div>
       </div>
 
